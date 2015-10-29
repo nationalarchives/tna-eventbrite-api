@@ -30,7 +30,7 @@ $(document).ready(function() {
 		        } else {
 		        	free = '';
 		        }
-                s += "<li>" + image + "<br><a href='" + event.url + "' alt='" + event.name.text + "'>" + event.name.text + "</a> " + free + "<br><span class='text-small'>" + eventTime + "</span></li>";
+                s += "<li>" + image + "<br><a href='" + event.url + "' alt='" + event.name.text + "' target='_blank'>" + event.name.text + "</a> " + free + "<br><span class='text-small'>" + eventTime + "</span></li>";
             }
             s += "</ul>";
             $events.html(s);
