@@ -1,4 +1,6 @@
-/* Attach Google Analytics event tracking to all external links */
+/* Attach Google Analytics event tracking to all external links inside #events
+   Refer to http://www.axllent.org/docs/view/track-outbound-links-with-google-ga-js/ */
+
 var _gaq = _gaq || [];
 
 function _gaLt(event){
@@ -10,8 +12,9 @@ function _gaLt(event){
 
     if(el && el.href){
         if(el.href.indexOf(location.host) == -1){ /* external link */
-            _gaq.push(["_trackEvent", "Outbound Links", el.href, document.location.pathname + document.location.search]);
+            _gaq.push(["_trackEvent", "outbound", "click", el.href]);
             console.log(el.href);
+            console.log(document.location.pathname);
         }
 
     }
