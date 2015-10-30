@@ -13,3 +13,4 @@ Specifying number of events displayed: [tna-eventbrite orginiser=224466123 numbe
 ### Bugs
 
 * When the shortcode is added twice to a page there is a js conflict and outputs nothing.
+* The js is relient on the correct file path and naming of the plugin's folder. Folder name should be 'tna-eventbrite-api'.
