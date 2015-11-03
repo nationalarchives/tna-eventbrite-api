@@ -19,6 +19,12 @@ function tna_ebapi_js()
     <?php
 }
 
+function tna_ebapi_css() {
+    wp_register_style( 'ebapi-styles',  plugin_dir_url( __FILE__ ) . 'css/ebapi-styles.css' );
+    wp_enqueue_style( 'ebapi-styles' );
+}
+add_action( 'wp_enqueue_scripts', 'tna_ebapi_css' );
+
 function tna_ebapi_shortcode($atts)
 {
     extract(shortcode_atts(array(

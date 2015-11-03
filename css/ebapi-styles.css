@@ -1,0 +1,30 @@
+#events .event-img, #events .event-text {
+    float: left;
+}
+#events .event-img {
+    width: 30%;
+    margin-right: 3%;
+}
+#events .event-img img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+#events .event-text {
+    width: 66%;
+}
+#events .event-text p, #events .event-text h4 {
+    margin: 0;
+}
+#events .event-status {
+    color: #CB0D07;
+}
+@media (max-width: 640px) {
+    #events .event-img {
+        width: 100%;
+        margin-bottom: 14px;
+    }
+    #events .event-text {
+        width: 100%;
+    }
+}
