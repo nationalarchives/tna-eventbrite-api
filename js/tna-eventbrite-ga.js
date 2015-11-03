@@ -1,7 +1,6 @@
-/* Attach Google Analytics event tracking to all external links inside #events
- Refer to http://www.axllent.org/docs/view/track-outbound-links-with-google-ga-js/ */
+/* Attach Google Analytics event tracking to all links inside .track-outbound */
 
-$(document).on('click', '#events a', function (e) {
+$(document).on('click', '.track-outbound a', function (e) {
 
     var $currentTarget = $(e.currentTarget),
         href = $currentTarget.attr('href');
@@ -9,7 +8,4 @@ $(document).on('click', '#events a', function (e) {
     _gaq.push(["_trackEvent", "outbound", "click", href]);
 
 });
-
-
-
 
