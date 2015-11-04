@@ -62,5 +62,9 @@ function tna_ebapi_settings_page() {
     </div>
     <?php
 }
+add_action('admin_init', 'tna_ebapi_settings_data');
+function tna_ebapi_settings_data() {
+    register_setting ('tna_ebapi_settings_token', 'tna_token');
+}
 
 ?>
