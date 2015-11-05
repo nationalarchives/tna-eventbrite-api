@@ -42,7 +42,7 @@ function tna_ebapi_shortcode($atts)
     }
 
     return '<div id="events" class="track-outbound" data-org-id="' . $organiser . '" data-number-events="' . $numberevents . '"></div>
-	        <div class="no-js"><a href="' . $url . '"></a></div>';
+	        <noscript><div class="visit-eventbrite"><a href="' . $url . '">Please visit our events page on Eventbrite</a></div></noscript>';
 }
 add_shortcode('tna-eventbrite', 'tna_ebapi_shortcode');
 
@@ -61,6 +61,10 @@ function tna_ebapi_settings_page() {
         <p>Specifying number of events displayed: [tna-eventbrite orginiser=224466123 numberevents=12]</p>
     </div>
     <?php
+}
+add_action('admin_init', 'tna_ebapi_settings_data');
+function tna_ebapi_settings_data() {
+    register_setting ('tna_ebapi_settings_token', 'tna_token');
 }
 
 ?>
