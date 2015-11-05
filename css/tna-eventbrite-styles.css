@@ -4,6 +4,17 @@
 #events .event-img {
     width: 30%;
     margin-right: 3%;
+    position: relative;
+}
+#events .event-img .online-event {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    color: #fff;
+    background-color: #008484;
+}
+#events .event-img .online-event span {
+    padding: 5px;
 }
 #events .event-img img {
     width: 100%;
