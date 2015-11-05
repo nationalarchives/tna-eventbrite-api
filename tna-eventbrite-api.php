@@ -42,7 +42,7 @@ function tna_ebapi_shortcode($atts)
     }
 
     return '<div id="events" class="track-outbound" data-org-id="' . $organiser . '" data-number-events="' . $numberevents . '"></div>
-	        <div class="no-js"><a href="' . $url . '"></a></div>';
+	        <noscript><div class="visit-eventbrite"><a href="' . $url . '">Please visit our events page on Eventbrite</a></div></noscript>';
 }
 add_shortcode('tna-eventbrite', 'tna_ebapi_shortcode');
 
