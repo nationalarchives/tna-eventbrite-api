@@ -37,10 +37,13 @@ function tna_ebapi_shortcode($atts)
         'organiser' => 2226699547,
         'numberevents' => 6
     ), $atts));
-    if ($organiser == 2226699547) {
-        $url = 'http://nationalarchives.eventbrite.co.uk/';
+    switch ($organiser) {
+        case '2226699547':
+            $url = 'http://nationalarchives.eventbrite.co.uk/';
+            break;
+        default:
+            $url = 'http://nationalarchives.eventbrite.co.uk/';
     }
-
     return '<div id="events" class="track-outbound" data-org-id="' . $organiser . '" data-number-events="' . $numberevents . '"></div>
 	        <noscript><div class="visit-eventbrite"><a href="' . $url . '">Please visit our events page on Eventbrite</a></div></noscript>';
 }
