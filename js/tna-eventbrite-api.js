@@ -29,7 +29,7 @@ $(document).ready(function () {
                 if (event.ticket_classes.length) {
                     var booking = (event.ticket_classes[0]['on_sale_status']);
                     if (booking == 'AVAILABLE') {
-                        var free = (event.ticket_classes[0]['free']) ? 'FREE' : '';
+                        var free = (event.ticket_classes[0]['free']) ? 'FREE' : 'PAID';
                     } else {
                         free = 'FULLY BOOKED';
                     }
