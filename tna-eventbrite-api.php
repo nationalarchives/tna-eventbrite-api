@@ -50,7 +50,7 @@ function tna_ebapi_shortcode($atts)
     }
 
     return '<div id="events" class="track-outbound" data-org-id="' . $organiser . '" data-number-events="' . $numberevents . '"></div>
-	        <noscript><div class="visit-eventbrite"><a href="' . $url . '">Please visit our events page on Eventbrite</a></div></noscript>';
+	        <div class="visit-eventbrite"><a href="' . $url . '" target="_blank" title="The National Archives events"><noscript>Please visit our events page on Eventbrite</noscript></a></div>';
 }
 
 add_shortcode('tna-eventbrite', 'tna_ebapi_shortcode');
