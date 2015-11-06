@@ -6,7 +6,7 @@ $(document).ready(function () {
     //number of events displayed
     var n = events.getAttribute('data-number-events');
     var $events = $("#events");
-    $events.html("<i>Loading events, please stand by...</i>");
+    $events.html("<p><i>Events programme loading...</i><br>If it does not appear after 10 seconds please <a href='http://nationalarchives.eventbrite.co.uk/' title='The National Archives events' target='_blank'>click here</a>.</p>");
 
     $.get('https://www.eventbriteapi.com/v3/events/search/?sort_by=date&organizer.id=' + organizer + '&token=' + token + '&expand=ticket_classes', function (res) {
         if (res.events.length) {
@@ -29,7 +29,7 @@ $(document).ready(function () {
                 if (event.ticket_classes.length) {
                     var booking = (event.ticket_classes[0]['on_sale_status']);
                     if (booking == 'AVAILABLE') {
-                        var free = (event.ticket_classes[0]['free']) ? 'FREE' : '';
+                        var free = (event.ticket_classes[0]['free']) ? 'FREE' : 'PAID';
                     } else {
                         free = 'FULLY BOOKED';
                     }
