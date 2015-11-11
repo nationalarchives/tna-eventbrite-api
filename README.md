@@ -8,11 +8,11 @@ TNA Eventbrite API plugin allows you to list events in a post or page using the 
 
 Default: \[tna-eventbrite\] (Displays 3 events from default orginiser)
 
-Specifying orginiser ID: \[tna-eventbrite orginiser=224466123\]
+Specifying organiser ID: \[tna-eventbrite organiser=224466123\]
 
-Specifying number of events displayed: \[tna-eventbrite orginiser=224466123 numberevents=12\]
+Specifying number of events displayed: \[tna-eventbrite organiser=224466123 numberevents=12\]
 
 ### Bugs
 
 * When the shortcode is added twice to a page there is a js conflict and outputs nothing.
-* The js is relient on the correct file path and naming of the plugin's folder. Folder name should be 'tna-eventbrite-api'.
+* Fixed: The js is relient on the correct file path and naming of the plugin's folder. Folder name should be 'tna-eventbrite-api'.
