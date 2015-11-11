@@ -6,7 +6,7 @@ $(document).ready(function () {
     //number of events displayed
     var n = events.getAttribute('data-number-events');
     var $events = $("#events");
-    $events.html("<p><i>Events programme loading...</i><br>If it does not appear after 10 seconds please <a href='http://nationalarchives.eventbrite.co.uk/' title='The National Archives events' target='_blank'>click here</a>.</p>");
+    $events.html("<p><i>Events programme loading.</i> If it does not appear after 10 seconds please <a href='http://nationalarchives.eventbrite.co.uk/' title='The National Archives events' target='_blank'>click here</a>.</p>");
 
     $.get('https://www.eventbriteapi.com/v3/events/search/?sort_by=date&organizer.id=' + organizer + '&token=' + token + '&expand=ticket_classes', function (res) {
         if (res.events.length) {
@@ -22,7 +22,7 @@ $(document).ready(function () {
                 var event = res.events[i];
                 var eventTime = moment(event.start.local).format('dddd D MMMM YYYY, h:mm a');
                 if (event.logo) {
-                    var image = "<img src='" + event.logo.url + "' alt='" + event.name.text + "'>";
+                    var image = "<a href='" + event.url + "' alt='" + event.name.text + "' target='_blank'><img src='" + event.logo.url + "' alt='" + event.name.text + "'></a>";
                 } else {
                     image = '<img src="http://placehold.it/400x200?text=Event">';
                 }
