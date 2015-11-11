@@ -81,9 +81,9 @@ function tna_ebapi_settings_page()
 
         <p>Default: [tna-eventbrite] (Displays 6 events from default orginiser)</p>
 
-        <p>Specifying orginiser ID: [tna-eventbrite orginiser=2226699547]</p>
+        <p>Specifying organiser ID: [tna-eventbrite organiser=2226699547]</p>
 
-        <p>Specifying number of events displayed: [tna-eventbrite orginiser=2226699547 numberevents=12]</p>
+        <p>Specifying number of events displayed: [tna-eventbrite organiser=2226699547 numberevents=12]</p>
 
         <h3>Organiser ID numbers</h3>
 
