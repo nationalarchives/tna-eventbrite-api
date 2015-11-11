@@ -22,7 +22,7 @@ $(document).ready(function () {
                 var event = res.events[i];
                 var eventTime = moment(event.start.local).format('dddd D MMMM YYYY, h:mm a');
                 if (event.logo) {
-                    var image = "<img src='" + event.logo.url + "' alt='" + event.name.text + "'>";
+                    var image = "<a href='" + event.url + "' alt='" + event.name.text + "' target='_blank'><img src='" + event.logo.url + "' alt='" + event.name.text + "'></a>";
                 } else {
                     image = '<img src="http://placehold.it/400x200?text=Event">';
                 }
