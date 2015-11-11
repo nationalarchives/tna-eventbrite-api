@@ -42,8 +42,14 @@ function tna_ebapi_shortcode($atts)
         'numberevents' => 6
     ), $atts));
     switch ($organiser) {
-        case '2226699547':
-            $url = 'http://nationalarchives.eventbrite.co.uk/';
+        case '8572569853':
+            $url = 'http://nationalarchivesforarchives.eventbrite.co.uk/';
+            break;
+        case '8627521843':
+            $url = 'http://nationalarchivesforhighereducation.eventbrite.co.uk/';
+            break;
+        case '8537195957':
+            $url = 'exploreyourarchive.eventbrite.co.uk/';
             break;
         default:
             $url = 'http://nationalarchives.eventbrite.co.uk/';
@@ -75,9 +81,22 @@ function tna_ebapi_settings_page()
 
         <p>Default: [tna-eventbrite] (Displays 6 events from default orginiser)</p>
 
-        <p>Specifying orginiser ID: [tna-eventbrite orginiser=224466123]</p>
+        <p>Specifying orginiser ID: [tna-eventbrite orginiser=2226699547]</p>
 
-        <p>Specifying number of events displayed: [tna-eventbrite orginiser=224466123 numberevents=12]</p>
+        <p>Specifying number of events displayed: [tna-eventbrite orginiser=2226699547 numberevents=12]</p>
+
+        <h3>Organiser ID numbers</h3>
+
+        <p>nationalarchives.eventbrite.co.uk : 2226699547</p>
+
+        <p>nationalarchivesforarchives.eventbrite.co.uk : 8572569853</p>
+
+        <p>nationalarchivesforhighereducation.eventbrite.co.uk : 8627521843</p>
+
+        <p>nationalarchivesforschools.eventbrite.co.uk : </p>
+
+        <p>exploreyourarchive.eventbrite.co.uk : 8537195957</p>
+
     </div>
     <?php
 }
