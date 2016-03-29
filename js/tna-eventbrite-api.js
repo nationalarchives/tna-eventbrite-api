@@ -36,13 +36,10 @@ $(document).ready(function () {
                 } else {
                     free = '';
                 }
-                if (event.venue_id) {
-                    var onlineStatus = (event.venue_id);
-                    if (onlineStatus == '9478447') {
+                if ( event.online_event == true ) {
                         var eventOnline = '<div class="online-event"><span>Online event</span></div>';
                     } else {
-                        eventOnline = '';
-                    }
+                        var eventOnline = '';
                 }
                 s += "<li class='clr'><div class='event-img'>" + eventOnline + image + "</div><div class='event-text'><p><span class='text-small'>" + eventTime + "</span></p><h4><a href='" + event.url + "' alt='" + event.name.text + "' target='_blank'>" + event.name.text + "</a></h4><p class='event-status'>" + free + "</p></div></li>";
             }
