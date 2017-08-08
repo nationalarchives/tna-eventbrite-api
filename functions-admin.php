@@ -4,16 +4,15 @@
  *
  */
 
-function tna_ebapi_settings_data()
-{
-	register_setting('tna_ebapi_settings_token', 'tna_token');
+function tna_ebapi_settings() {
+	add_options_page('Eventbrite settings', 'Eventbrite', 'administrator', 'tna-eventbrite-api', 'tna_ebapi_settings_page');
 }
 
-function tna_ebapi_settings()
-{
-	add_options_page('Eventbrite settings', 'Eventbrite', 'administrator', 'tna-eventbrite-api',
-		'tna_ebapi_settings_page');
+function tna_ebapi_settings_data() {
+	register_setting('tna_ebapi_settings_group', 'tna_ebapi_token');
 }
+
+
 
 function tna_ebapi_settings_page()
 {
@@ -31,6 +30,18 @@ function tna_ebapi_settings_page()
 		<p>Specifying organiser ID: [tna-eventbrite organiser=2226699547]</p>
 
 		<p>Specifying number of events displayed: [tna-eventbrite organiser=2226699547 numberevents=12]</p>
+
+		<form method="post" action="options.php" novalidate="novalidate">
+			<?php settings_fields( 'tna_ebapi_settings_group' ); ?>
+			<?php do_settings_sections( 'tna_ebapi_settings_group' ); ?>
+			<table class="form-table">
+				<tr valign="top">
+					<th scope="row"><label for="tna_ebapi_token">Token</label></th>
+					<td><input type="text" name="tna_ebapi_token" value="<?php echo esc_attr( get_option('tna_ebapi_token') ); ?>" /></td>
+				</tr>
+			</table>
+			<?php submit_button(); ?>
+		</form>
 
 		<h3>Organiser ID numbers</h3>
 
