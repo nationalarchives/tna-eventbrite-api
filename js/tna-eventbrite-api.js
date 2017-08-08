@@ -27,11 +27,13 @@ $(document).ready(function () {
                     image = '<img src="http://placehold.it/400x200?text=Event">';
                 }
                 if (event.ticket_classes.length) {
-                    var booking = (event.ticket_classes[0]['on_sale_status']);
-                    if (booking == 'AVAILABLE') {
-                        var free = (event.ticket_classes[0]['free']) ? 'FREE' : 'PAID';
-                    } else {
-                        free = 'FULLY BOOKED';
+                    for (var tc = 0; tc < event.ticket_classes.length; tc++) {
+                        if (event.ticket_classes[tc]['on_sale_status'] == 'AVAILABLE') {
+                            var free = (event.ticket_classes[tc]['free']) ? 'FREE' : 'PAID';
+                            break;
+                        } else {
+                            free = 'FULLY BOOKED';
+                        }
                     }
                 } else {
                     free = '';
