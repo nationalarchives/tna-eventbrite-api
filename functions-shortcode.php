@@ -14,6 +14,7 @@ function tna_ebapi_shortcode($atts)
 
 	$token = get_option('tna_ebapi_token');
 	$organiser = $a['organiser'];
+	$number = $a['numberevents'];
 	$category = '';
 
 	if ($a['category']) {
@@ -26,5 +27,5 @@ function tna_ebapi_shortcode($atts)
 
 	$url = 'https://www.eventbriteapi.com/v3/events/search/?organizer.id='.$organiser.$category.'&token='.$token.'&expand=ticket_classes';
 
-	return tna_ebapi_events( $url );
+	return tna_ebapi_events( $url, $number );
 }
