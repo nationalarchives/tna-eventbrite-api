@@ -31,7 +31,7 @@ function tna_ebapi_events( $url, $number ) {
 		$number = $number-1;
 	}
 
-	$html = '<div id="tna_ebapi_events" class="track-outbound"><ul class="tna-event-list no-bullet">';
+	$html = '<div id="tna_ebapi_events" class="track-outbound"><ul class="tna-event-list">';
 
 	for ( $i=0 ; $i<=$number ; $i++ ) {
 

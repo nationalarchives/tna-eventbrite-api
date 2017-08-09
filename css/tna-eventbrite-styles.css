@@ -1,3 +1,10 @@
+#tna_ebapi_events ul li {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5em;
+    list-style-image: none;
+    list-style-type: none;
+    margin-bottom: 0.5em;
+}
 #tna_ebapi_events .event-img, #tna_ebapi_events .event-text {
     float: left;
 }
@@ -20,6 +27,7 @@
     width: 100%;
     max-width: 100%;
     height: auto;
+    margin: 0;
 }
 #tna_ebapi_events .event-text {
     width: 66%;
