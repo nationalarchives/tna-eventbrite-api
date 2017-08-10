@@ -47,8 +47,10 @@
   .event-text {
     width: 66%;
   }
-  .event-text p, .event-text h4 {
-    margin: 0;
+  .event-text {
+    p, h4 {
+      margin: 0;
+    }
   }
   .event-status {
     color: #CB0D07;
