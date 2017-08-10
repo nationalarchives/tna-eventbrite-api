@@ -8,8 +8,8 @@
  *
  */
 
-function tna_ebapi_shortcode($atts)
-{
+function tna_ebapi_shortcode( $atts ) {
+
 	$a = shortcode_atts( array(
 		'organiser' => 2226699547,
 		'numberevents' => 6,
