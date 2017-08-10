@@ -4,6 +4,14 @@
  *
  */
 
+function tna_ebapi_url( $organiser, $category, $token ) {
+
+	$url = 'https://www.eventbriteapi.com/v3/events/search/?organizer.id='.$organiser.$category.'&token='.$token.'&expand=ticket_classes';
+
+	return $url;
+
+}
+
 function tna_ebapi_get_eventbrite_json( $url ) {
 
 	if ( !class_exists('WP_Http') ) {
