@@ -9,8 +9,7 @@
   width: 100%;
   border-bottom: 1px solid #ddd;
   padding-bottom: 0.8em;
-  list-style-image: none;
-  list-style-type: none;
+  list-style: none none;
   margin-bottom: 0.8em; }
 #tna_ebapi_events ul li:after {
   content: "";
