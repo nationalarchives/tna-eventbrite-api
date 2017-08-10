@@ -21,5 +21,5 @@ add_action('wp_enqueue_scripts', 'tna_ebapi_js');
 add_action('admin_menu', 'tna_ebapi_settings');
 add_action('admin_init', 'tna_ebapi_settings_data');
 
-// Shortcode
+// Shortcode [tna-eventbrite]
 add_shortcode('tna-eventbrite', 'tna_ebapi_shortcode');
