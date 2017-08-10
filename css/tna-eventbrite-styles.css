@@ -1,9 +1,21 @@
+#tna_ebapi_events ul {
+    padding: 0;
+}
 #tna_ebapi_events ul li {
+    display: block;
+    width: 100%;
     border-bottom: 1px solid #ddd;
     padding-bottom: 0.5em;
     list-style-image: none;
     list-style-type: none;
     margin-bottom: 0.5em;
+}
+#tna_ebapi_events ul li:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
 }
 #tna_ebapi_events .event-img, #tna_ebapi_events .event-text {
     float: left;
