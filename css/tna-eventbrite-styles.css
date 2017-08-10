@@ -5,10 +5,10 @@
     display: block;
     width: 100%;
     border-bottom: 1px solid #ddd;
-    padding-bottom: 0.5em;
+    padding-bottom: 0.8em;
     list-style-image: none;
     list-style-type: none;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.8em;
 }
 #tna_ebapi_events ul li:after {
     content: "";
@@ -53,7 +53,7 @@
 @media (max-width: 640px) {
     #tna_ebapi_events .event-img {
         width: 100%;
-        margin-bottom: 14px;
+        margin-bottom: 1em;
     }
     #tna_ebapi_events .event-text {
         width: 100%;

@@ -38,7 +38,7 @@ function tna_ebapi_events( $url, $number ) {
 		$url = $obj->events[$i]->url;
 		$title = $obj->events[$i]->name->text;
 		$image = $obj->events[$i]->logo->url;
-		$date = $obj->events[$i]->start->local;
+		$date = date('l j F Y, H:i', strtotime($obj->events[$i]->start->local));
 		$status = $obj->events[$i]->ticket_classes;
 		$tickets = tna_edapi_event_status( $status );
 
