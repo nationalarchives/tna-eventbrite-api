@@ -90,28 +90,39 @@ class Simple_Eventbrite_List {
 		if ( $json ) {
 
 			$obj = json_decode( $json );
-			$count = count( $obj->events );
 
-			if ( $number > $count ) {
-				$number = $count - 1;
+			if ( $obj->status_code == 400 || $obj->status_code == 401 ) {
+
+				$error = $obj->error_description;
+
+				$html .= '<h2>API error '.$obj->status_code.'</h2>';
+				$html .= '<p>'.$error.'</p>';
+
 			} else {
-				$number = $number - 1;
-			}
 
-			for ( $i = 0; $i <= $number; $i ++ ) {
+				$count = count( $obj->events );
 
-				$url     = $obj->events[ $i ]->url;
-				$title   = $obj->events[ $i ]->name->text;
-				$image   = $obj->events[ $i ]->logo->url;
-				$date    = date( 'l j F Y, H:i', strtotime( $obj->events[ $i ]->start->local ) );
-				$tickets = $this->event_status( $obj->events[ $i ]->ticket_classes );
-				$online  = $this->event_online( $obj->events[ $i ]->online_event );
+				if ( $number > $count ) {
+					$number = $count - 1;
+				} else {
+					$number = $number - 1;
+				}
 
-				$html   .= '<li>';
-				$html   .= $this->event_image( $online, $url, $image, $title );
-				$html   .= $this->event_text( $date, $url, $title, $tickets );
-				$html   .= '</li>';
+				for ( $i = 0; $i <= $number; $i ++ ) {
 
+					$url     = $obj->events[ $i ]->url;
+					$title   = $obj->events[ $i ]->name->text;
+					$image   = $obj->events[ $i ]->logo->url;
+					$date    = date( 'l j F Y, H:i', strtotime( $obj->events[ $i ]->start->local ) );
+					$tickets = $this->event_status( $obj->events[ $i ]->ticket_classes );
+					$online  = $this->event_online( $obj->events[ $i ]->online_event );
+
+					$html   .= '<li>';
+					$html   .= $this->event_image( $online, $url, $image, $title );
+					$html   .= $this->event_text( $date, $url, $title, $tickets );
+					$html   .= '</li>';
+
+				}
 			}
 		} else {
 
