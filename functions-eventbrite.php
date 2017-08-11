@@ -74,7 +74,7 @@ function tna_ebapi_events( $url, $number ) {
 	return $html;
 }
 
-function tna_edapi_event_status( $status ) {
+function tna_ebapi_event_status( $status ) {
 
 	$tickets = '';
 
@@ -96,7 +96,7 @@ function tna_edapi_event_status( $status ) {
 	return $tickets;
 }
 
-function tna_edapi_event_online( $online ) {
+function tna_ebapi_event_online( $online ) {
 
 	$html = '';
 
