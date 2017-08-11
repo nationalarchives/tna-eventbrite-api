@@ -43,16 +43,19 @@ function tna_ebapi_events( $url, $number ) {
 
 	for ( $i=0 ; $i<=$number ; $i++ ) {
 
-		$url = $obj->events[$i]->url;
-		$title = $obj->events[$i]->name->text;
-		$image = $obj->events[$i]->logo->url;
-		$date = date('l j F Y, H:i', strtotime($obj->events[$i]->start->local));
-		$status = $obj->events[$i]->ticket_classes;
-		$tickets = tna_edapi_event_status( $status );
+		$url        = $obj->events[$i]->url;
+		$title      = $obj->events[$i]->name->text;
+		$image      = $obj->events[$i]->logo->url;
+		$date       = date('l j F Y, H:i', strtotime($obj->events[$i]->start->local));
+		$status     = $obj->events[$i]->ticket_classes;
+		$tickets    = tna_edapi_event_status( $status );
+		$online     = tna_edapi_event_online( $obj->events[$i]->online_event );
 
 		$html .= '<li>';
 
-		$html .= '<div class="event-img"><a href="'.$url.'" target="_blank"><img src="'.$image.'" alt="'.$title.'"></a></div>';
+		$html .= '<div class="event-img">'.$online;
+
+		$html .= '<a href="'.$url.'" target="_blank"><img src="'.$image.'" alt="'.$title.'"></a></div>';
 
 		$html .= '<div class="event-text">';
 
@@ -91,4 +94,15 @@ function tna_edapi_event_status( $status ) {
 	}
 
 	return $tickets;
+}
+
+function tna_edapi_event_online( $online ) {
+
+	$html = '';
+
+	if ( $online == true ) {
+		$html = '<div class="online-event"><span>Online event</span></div>';
+	}
+
+	return $html;
 }
