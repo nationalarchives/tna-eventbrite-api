@@ -86,7 +86,7 @@ class Simple_Eventbrite_List {
 
 	public function event_text( $date, $url, $title, $tickets ) {
 
-		$html = '<div class="event-text"><p><span class="event-date">%s</span></p><h4><a href="%s" target="_blank">%s</a></h4><p class="event-status">%s</p></div>';
+		$html = '<div class="event-text"><p>%s</p><h4><a href="%s" target="_blank">%s</a></h4><p class="event-status">%s</p></div>';
 
 		return sprintf( $html, $date, $url, $title, $tickets );
 	}
