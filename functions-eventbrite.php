@@ -1,33 +1,44 @@
 <?php
+
 /**
  * Eventbrite API
  *
  */
-
 class Simple_Eventbrite_List {
 
 	public function url( $organiser, $category, $token ) {
 
-		$url = 'https://www.eventbriteapi.com/v3/events/search/?sort_by=date&organizer.id='.$organiser.$category.'&token='.$token.'&expand=ticket_classes';
+		$url = 'https://www.eventbriteapi.com/v3/events/search/?sort_by=date&organizer.id=' . $organiser . $category . '&token=' . $token . '&expand=ticket_classes';
 
 		return $url;
 	}
 
+	public function check_result( $result ) {
+
+		if ( is_wp_error( $result ) ) {
+			$result = false;
+		} elseif ( wp_remote_retrieve_response_code( $result ) == '404' ) {
+			$result = false;
+		} else {
+			$result = true;
+		}
+
+		return $result;
+	}
+
 	public function get_json( $url ) {
 
-		if ( !class_exists('WP_Http') ) {
-			include_once( ABSPATH . WPINC . '/class-http.php');
+		if ( ! class_exists( 'WP_Http' ) ) {
+			include_once( ABSPATH . WPINC . '/class-http.php' );
 		}
 
 		$request = new WP_Http;
-		$result = $request->request( $url );
+		$result  = $request->request( $url );
 
-		if ( is_wp_error($result) ) {
-			$json = null;
-		} elseif ( wp_remote_retrieve_response_code($result) == '404' ) {
-			$json = null;
-		} else {
+		if ( $this->check_result( $result ) ) {
 			$json = $result['body'];
+		} else {
+			$json = null;
 		}
 
 		return $json;
@@ -37,14 +48,14 @@ class Simple_Eventbrite_List {
 
 		$tickets = '';
 
-		if ($status) {
+		if ( $status ) {
 
-			$count = count($status);
+			$count = count( $status );
 
-			for ($tc = 0; $tc < $count; $tc++) {
+			for ( $tc = 0; $tc < $count; $tc ++ ) {
 
-				if ($status[$tc]->on_sale_status == 'AVAILABLE') {
-					$tickets = ($status[$tc]->free) ? 'FREE' : 'PAID';
+				if ( $status[ $tc ]->on_sale_status == 'AVAILABLE' ) {
+					$tickets = ( $status[ $tc ]->free ) ? 'FREE' : 'PAID';
 					break;
 				} else {
 					$tickets = 'FULLY BOOKED';
@@ -82,10 +93,10 @@ class Simple_Eventbrite_List {
 
 	public function display( $organiser, $category, $token, $number ) {
 
-		$url    = $this->url( $organiser, $category, $token );
-		$json   = $this->get_json( $url );
+		$url  = $this->url( $organiser, $category, $token );
+		$json = $this->get_json( $url );
 
-		$html   = '<div id="tna_ebapi_events" class="track-outbound"><ul class="tna-event-list">';
+		$html = '<div id="tna_ebapi_events" class="track-outbound"><ul class="tna-event-list">';
 
 		if ( $json ) {
 
@@ -95,8 +106,8 @@ class Simple_Eventbrite_List {
 
 				$error = $obj->error_description;
 
-				$html .= '<h2>API error '.$obj->status_code.'</h2>';
-				$html .= '<p>'.$error.'</p>';
+				$html .= '<h2>API error ' . $obj->status_code . '</h2>';
+				$html .= '<p>' . $error . '</p>';
 
 			} else {
 
@@ -117,10 +128,10 @@ class Simple_Eventbrite_List {
 					$tickets = $this->event_status( $obj->events[ $i ]->ticket_classes );
 					$online  = $this->event_online( $obj->events[ $i ]->online_event );
 
-					$html   .= '<li>';
-					$html   .= $this->event_image( $online, $url, $image, $title );
-					$html   .= $this->event_text( $date, $url, $title, $tickets );
-					$html   .= '</li>';
+					$html .= '<li>';
+					$html .= $this->event_image( $online, $url, $image, $title );
+					$html .= $this->event_text( $date, $url, $title, $tickets );
+					$html .= '</li>';
 
 				}
 			}
