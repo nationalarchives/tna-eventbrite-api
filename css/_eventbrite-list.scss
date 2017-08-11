@@ -26,27 +26,26 @@
     width: 30%;
     margin-right: 3%;
     position: relative;
-  }
-  .event-img .online-event {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    color: #fff;
-    background-color: #008484;
-  }
-  .event-img .online-event span {
-    padding: 5px;
-  }
-  .event-img img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    margin: 0;
+    img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin: 0;
+    }
+    .online-event {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      color: #fff;
+      background-color: #008484;
+      span {
+        padding: 5px;
+      }
+    }
   }
   .event-text {
     width: 66%;
-  }
-  .event-text {
     p, h4 {
       margin: 0;
     }
