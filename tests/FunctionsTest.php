@@ -37,6 +37,10 @@ class FunctionsTest extends PHPUnit_Framework_TestCase
 	{
 		$this->assertTrue(function_exists('tna_edapi_event_status'));
 	}
+	public function test_tna_edapi_event_online()
+	{
+		$this->assertTrue(function_exists('tna_edapi_event_online'));
+	}
 
 	public function test_tna_ebapi_css()
 	{
