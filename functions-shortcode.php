@@ -13,7 +13,7 @@ function tna_ebapi_shortcode( $atts ) {
 	$a = shortcode_atts( array(
 		'organiser' => 2226699547,
 		'numberevents' => 6,
-		'category' => null
+		'category' => ''
 	), $atts);
 
 	$token = get_option('tna_ebapi_token');
@@ -29,5 +29,7 @@ function tna_ebapi_shortcode( $atts ) {
 		return '<h2>Eventbrite API token not found</h2>';
 	}
 
-	return tna_ebapi_events( $organiser, $category, $token, $number );
+	$events = new Simple_Eventbrite_List;
+
+	return $events->display( $organiser, $category, $token, $number );
 }
