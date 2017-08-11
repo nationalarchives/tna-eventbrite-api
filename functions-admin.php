@@ -49,13 +49,19 @@ function tna_ebapi_settings_page()
 
 		<h3>Organiser IDs</h3>
 
-		<p>nationalarchives.eventbrite.co.uk : 2226699547</p>
+		<p>nationalarchives.eventbrite.co.uk: 2226699547</p>
 
-		<p>nationalarchivesforarchives.eventbrite.co.uk : 8572569853</p>
+		<p>nationalarchivesforarchives.eventbrite.co.uk: 8572569853</p>
 
-		<p>nationalarchivesforhighereducation.eventbrite.co.uk : 8627521843</p>
+		<p>nationalarchivesforhighereducation.eventbrite.co.uk: 8627521843</p>
 
-		<p>exploreyourarchive.eventbrite.co.uk : 8537195957</p>
+		<p>exploreyourarchive.eventbrite.co.uk: 8537195957</p>
+
+		<h3>Category IDs</h3>
+
+		<p>Community: 113</p>
+
+		<p>Family & Education: 115</p>
 
 	</div>
 	<?php
