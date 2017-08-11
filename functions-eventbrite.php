@@ -66,18 +66,30 @@ class Simple_Eventbrite_List {
 		return $html;
 	}
 
+	public function event_image( $online, $url, $image, $title ) {
+
+		$html = '<div class="event-img">%s<a href="%s" target="_blank"><img src="%s" alt="%s"></a></div>';
+
+		return sprintf( $html, $online, $url, $image, $title );
+	}
+
+	public function event_text( $date, $url, $title, $tickets ) {
+
+		$html = '<div class="event-text"><p><span class="event-date">%s</span></p><h4><a href="%s" target="_blank">%s</a></h4><p class="event-status">%s</p></div>';
+
+		return sprintf( $html, $date, $url, $title, $tickets );
+	}
+
 	public function display( $organiser, $category, $token, $number ) {
 
-		$url = $this->url( $organiser, $category, $token );
+		$url    = $this->url( $organiser, $category, $token );
+		$json   = $this->get_json( $url );
 
-		$json = $this->get_json( $url );
-
-		$html = '<div id="tna_ebapi_events" class="track-outbound"><ul class="tna-event-list">';
+		$html   = '<div id="tna_ebapi_events" class="track-outbound"><ul class="tna-event-list">';
 
 		if ( $json ) {
 
 			$obj = json_decode( $json );
-
 			$count = count( $obj->events );
 
 			if ( $number > $count ) {
@@ -95,21 +107,10 @@ class Simple_Eventbrite_List {
 				$tickets = $this->event_status( $obj->events[ $i ]->ticket_classes );
 				$online  = $this->event_online( $obj->events[ $i ]->online_event );
 
-				$html .= '<li>';
-
-				$html .= '<div class="event-img">' . $online;
-
-				$html .= '<a href="' . $url . '" target="_blank"><img src="' . $image . '" alt="' . $title . '"></a></div>';
-
-				$html .= '<div class="event-text">';
-
-				$html .= '<p><span class="event-date">' . $date . '</span></p>';
-
-				$html .= '<h4><a href="' . $url . '" target="_blank">' . $title . '</a></h4>';
-
-				$html .= '<p class="event-status">' . $tickets . '</p>';
-
-				$html .= '</div></li>';
+				$html   .= '<li>';
+				$html   .= $this->event_image( $online, $url, $image, $title );
+				$html   .= $this->event_text( $date, $url, $title, $tickets );
+				$html   .= '</li>';
 
 			}
 		} else {
