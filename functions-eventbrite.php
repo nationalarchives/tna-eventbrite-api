@@ -48,8 +48,8 @@ function tna_ebapi_events( $url, $number ) {
 		$image      = $obj->events[$i]->logo->url;
 		$date       = date('l j F Y, H:i', strtotime($obj->events[$i]->start->local));
 		$status     = $obj->events[$i]->ticket_classes;
-		$tickets    = tna_edapi_event_status( $status );
-		$online     = tna_edapi_event_online( $obj->events[$i]->online_event );
+		$tickets    = tna_ebapi_event_status( $status );
+		$online     = tna_ebapi_event_online( $obj->events[$i]->online_event );
 
 		$html .= '<li>';
 
