@@ -6,7 +6,7 @@
 
 function tna_ebapi_url( $organiser, $category, $token ) {
 
-	$url = 'https://www.eventbriteapi.com/v3/events/search/?organizer.id='.$organiser.$category.'&token='.$token.'&expand=ticket_classes';
+	$url = 'https://www.eventbriteapi.com/v3/events/search/?sort_by=date&organizer.id='.$organiser.$category.'&token='.$token.'&expand=ticket_classes';
 
 	return $url;
 
