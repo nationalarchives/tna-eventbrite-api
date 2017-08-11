@@ -31,7 +31,9 @@ function tna_ebapi_get_eventbrite_json( $url ) {
 	return $json;
 }
 
-function tna_ebapi_events( $url, $number ) {
+function tna_ebapi_events( $organiser, $category, $token, $number ) {
+
+	$url = tna_ebapi_url( $organiser, $category, $token );
 
 	$json = tna_ebapi_get_eventbrite_json( $url );
 

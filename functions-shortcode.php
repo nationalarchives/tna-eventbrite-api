@@ -29,7 +29,5 @@ function tna_ebapi_shortcode( $atts ) {
 		return '<h2>Eventbrite API token not found</h2>';
 	}
 
-	$url = tna_ebapi_url( $organiser, $category, $token );
-
-	return tna_ebapi_events( $url, $number );
+	return tna_ebapi_events( $organiser, $category, $token, $number );
 }
