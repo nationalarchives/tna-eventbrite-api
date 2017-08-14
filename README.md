@@ -1,6 +1,7 @@
 # tna-eventbrite-api
 
 ## WordPress plugin
+Version 2.0
 
 ### Shortcode
 
