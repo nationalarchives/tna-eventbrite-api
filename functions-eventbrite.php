@@ -6,6 +6,13 @@
  */
 class Simple_Eventbrite_List {
 
+	/**
+	 * @param $organiser
+	 * @param $category
+	 * @param $token
+	 *
+	 * @return string
+	 */
 	public function url( $organiser, $category, $token ) {
 
 		$url = 'https://www.eventbriteapi.com/v3/events/search/?sort_by=date&organizer.id=' . $organiser . $category . '&token=' . $token . '&expand=ticket_classes';
@@ -13,6 +20,11 @@ class Simple_Eventbrite_List {
 		return $url;
 	}
 
+	/**
+	 * @param $result
+	 *
+	 * @return bool
+	 */
 	public function check_result( $result ) {
 
 		if ( is_wp_error( $result ) ) {
@@ -26,6 +38,11 @@ class Simple_Eventbrite_List {
 		return $result;
 	}
 
+	/**
+	 * @param $url
+	 *
+	 * @return null
+	 */
 	public function get_json( $url ) {
 
 		if ( ! class_exists( 'WP_Http' ) ) {
@@ -44,6 +61,11 @@ class Simple_Eventbrite_List {
 		return $json;
 	}
 
+	/**
+	 * @param $status
+	 *
+	 * @return string
+	 */
 	public function event_status( $status ) {
 
 		$tickets = '';
@@ -66,6 +88,11 @@ class Simple_Eventbrite_List {
 		return $tickets;
 	}
 
+	/**
+	 * @param $online
+	 *
+	 * @return string
+	 */
 	public function event_online( $online ) {
 
 		$html = '';
@@ -77,6 +104,14 @@ class Simple_Eventbrite_List {
 		return $html;
 	}
 
+	/**
+	 * @param $online
+	 * @param $url
+	 * @param $image
+	 * @param $title
+	 *
+	 * @return string
+	 */
 	public function event_image( $online, $url, $image, $title ) {
 
 		$html = '<div class="event-img">%s<a href="%s" target="_blank"><img src="%s" alt="%s"></a></div>';
@@ -84,6 +119,14 @@ class Simple_Eventbrite_List {
 		return sprintf( $html, $online, $url, $image, $title );
 	}
 
+	/**
+	 * @param $date
+	 * @param $url
+	 * @param $title
+	 * @param $tickets
+	 *
+	 * @return string
+	 */
 	public function event_text( $date, $url, $title, $tickets ) {
 
 		$html = '<div class="event-text"><p>%s</p><h4><a href="%s" target="_blank">%s</a></h4><p class="event-status">%s</p></div>';
@@ -91,6 +134,14 @@ class Simple_Eventbrite_List {
 		return sprintf( $html, $date, $url, $title, $tickets );
 	}
 
+	/**
+	 * @param $organiser
+	 * @param $category
+	 * @param $token
+	 * @param $number
+	 *
+	 * @return string
+	 */
 	public function display( $organiser, $category, $token, $number ) {
 
 		$url  = $this->url( $organiser, $category, $token );
