@@ -34,4 +34,14 @@ class FunctionsTest extends PHPUnit_Framework_TestCase
 	{
 		$this->assertTrue(function_exists('tna_ebapi_shortcode'));
 	}
+
+	public function test_Simple_Eventbrite_List()
+	{
+		$this->assertTrue( class_exists('Simple_Eventbrite_List') );
+	}
+	public function test_display()
+	{
+		$class = new \Simple_Eventbrite_List();
+		$this->assertTrue( method_exists($class, 'display') );
+	}
 }
