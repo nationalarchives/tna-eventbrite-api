@@ -17,7 +17,6 @@ include 'functions-eventbrite.php';
 
 // add_action
 add_action('wp_enqueue_scripts', 'tna_ebapi_css');
-add_action('wp_enqueue_scripts', 'tna_ebapi_js');
 add_action('admin_menu', 'tna_ebapi_settings');
 add_action('admin_init', 'tna_ebapi_settings_data');
 
