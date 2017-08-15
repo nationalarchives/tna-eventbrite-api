@@ -25,10 +25,6 @@ class FunctionsTest extends PHPUnit_Framework_TestCase
 	{
 		$this->assertTrue(function_exists('tna_ebapi_css'));
 	}
-	public function test_tna_ebapi_js()
-	{
-		$this->assertTrue(function_exists('tna_ebapi_js'));
-	}
 
 	public function test_tna_ebapi_shortcode()
 	{
