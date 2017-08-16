@@ -28,6 +28,8 @@
     max-width: 100%;
     height: auto;
     margin: 0; }
+  #tna_ebapi_events .event-img a {
+    display: block; }
   #tna_ebapi_events .event-img .online-event {
     position: absolute;
     left: 0;
