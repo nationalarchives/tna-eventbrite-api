@@ -12,8 +12,6 @@ function tna_ebapi_settings_data() {
 	register_setting('tna_ebapi_settings_group', 'tna_ebapi_token');
 }
 
-
-
 function tna_ebapi_settings_page()
 {
 	// admin

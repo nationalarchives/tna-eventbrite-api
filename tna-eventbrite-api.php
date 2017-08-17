@@ -3,7 +3,7 @@
  * Plugin Name: TNA Eventbrite API
  * Plugin URI: https://github.com/nationalarchives/tna-eventbrite-api
  * Description: TNA Eventbrite API plugin displays a list of events in a post or page using the [tna-eventbrite] shortcode.
- * Version: 2.0
+ * Version: 2.1
  * Author: Chris Bishop @ TNA
  * Author URI: https://github.com/nationalarchives
  * License: GPL2
@@ -17,7 +17,6 @@ include 'functions-eventbrite.php';
 
 // add_action
 add_action('wp_enqueue_scripts', 'tna_ebapi_css');
-add_action('wp_enqueue_scripts', 'tna_ebapi_js');
 add_action('admin_menu', 'tna_ebapi_settings');
 add_action('admin_init', 'tna_ebapi_settings_data');
 
