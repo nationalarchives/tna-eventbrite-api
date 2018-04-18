@@ -78,7 +78,8 @@ class Simple_Eventbrite_List {
 			for ( $tc = 0; $tc < $count; $tc ++ ) {
 
 				if ( $status[ $tc ]->on_sale_status == 'AVAILABLE' ) {
-					$tickets = ( $status[ $tc ]->free ) ? 'FREE' : 'PAID';
+					// $tickets = ( $status[ $tc ]->free ) ? 'FREE' : 'PAID';
+					$tickets = '';
 					break;
 				} else {
 					$tickets = 'FULLY BOOKED';
