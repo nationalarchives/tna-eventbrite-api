@@ -196,7 +196,8 @@ class Simple_Eventbrite_List {
 					$title   = $obj->events[ $i ]->name->text;
 					$image   = $obj->events[ $i ]->logo->url;
 					$date    = date( 'l j F Y, H:i', strtotime( $obj->events[ $i ]->start->local ) );
-					$tickets = $this->event_status( $obj->events[ $i ]->ticket_classes );
+					// $tickets = $this->event_status( $obj->events[ $i ]->ticket_classes );
+                    $tickets = '';
 					$online  = $this->event_online( $obj->events[ $i ]->online_event );
 
 					$html .= '<li>';
